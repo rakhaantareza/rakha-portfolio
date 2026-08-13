@@ -58,21 +58,21 @@ A career-readiness platform that helps job seekers understand how their skills a
 
 # 02 / CAPABILITIES
 
-## Product Engineering
-
-Turning product ideas and requirements into functional web experiences from interface to implementation.
-
 ## Frontend Development
 
-Building responsive, maintainable interfaces with modern web technologies and close attention to interaction and usability.
+Building responsive, maintainable interfaces with attention to component structure, interaction, accessibility, and usability.
 
 ## Full-Stack Development
 
-Connecting interfaces with application logic, data, authentication, and backend services to create complete product experiences.
+Connecting interfaces with application logic, authentication, data, and backend services to build complete application flows.
+
+## Product Engineering
+
+Turning product requirements into working features by connecting interface decisions, application logic, and implementation constraints.
 
 ## Product Thinking
 
-Looking beyond implementation to understand user problems, product flows, trade-offs, and why a feature should exist in the first place.
+Considering user goals, constraints, and trade-offs when deciding what to build and how an implementation should work.
 
 ---
 
@@ -80,11 +80,11 @@ Looking beyond implementation to understand user problems, product flows, trade-
 
 ## I build with both the product and the implementation in mind.
 
-I'm Rakha, a software engineer with a background in Information Systems and experience across both development and product.
+I'm Rakha, a software engineer with a background in Information Systems and experience across web development and B2B SaaS.
 
-I started building for the web through software development, then spent time working closer to the product side of B2B SaaS. That experience changed how I approach engineering: not only thinking about how something should work, but also what problem it solves and how people will experience it.
+I started in software development, then spent time working closer to product and go-to-market teams. That experience gave me a broader view of how software decisions connect to user needs, business context, and the way a product is experienced.
 
-Today, I focus on building thoughtful web products where engineering, usability, and product decisions come together.
+Today, I bring that perspective back into engineering—building web applications with attention to implementation, usability, and the decisions behind how they work.
 
 ---
 
@@ -108,8 +108,7 @@ Laravel
 
 Git  
 GitHub  
-Figma  
-Codex
+Figma
 
 ---
 

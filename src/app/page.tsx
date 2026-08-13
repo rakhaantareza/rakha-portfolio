@@ -1,3 +1,5 @@
+import { About } from "@/components/sections/about";
+import { Capabilities } from "@/components/sections/capabilities";
 import { Hero } from "@/components/sections/hero";
 import { Navigation } from "@/components/sections/navigation";
 import { SelectedWork } from "@/components/sections/selected-work";
@@ -9,6 +11,8 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <SelectedWork />
+        <Capabilities />
+        <About />
       </main>
     </>
   );
