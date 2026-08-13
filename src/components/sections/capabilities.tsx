@@ -40,11 +40,17 @@ export function Capabilities() {
             02 / CAPABILITIES
           </h2>
 
-          <ol className="mt-14 border-b border-line sm:mt-20 md:grid md:grid-cols-2 xl:mt-24">
-            {capabilities.map((capability) => (
+          <ol className="mt-14 sm:mt-20 md:grid md:grid-cols-2 md:gap-x-10 lg:gap-x-20 xl:mt-24 xl:gap-x-28">
+            {capabilities.map((capability, position) => (
               <li
                 key={capability.index}
-                className="border-t border-line py-8 sm:py-10 md:min-h-80 md:px-8 md:py-12 md:odd:pl-0 md:even:border-l md:even:pr-0 lg:min-h-84 lg:px-12 lg:py-14"
+                className={`py-8 sm:py-10 md:py-0 ${
+                  position === 0
+                    ? "md:pb-12 lg:pb-14 xl:pb-16"
+                    : position === 1
+                      ? "border-t border-line md:border-t-0 md:pb-12 lg:pb-14 xl:pb-16"
+                      : "border-t border-line md:pt-12 lg:pt-14 xl:pt-16"
+                }`}
               >
                 <p className="font-mono text-meta text-ink-muted">
                   {capability.index}

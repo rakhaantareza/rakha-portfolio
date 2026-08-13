@@ -59,7 +59,7 @@ export function About() {
             </div>
           </div>
 
-          <div className="mt-[var(--section-space-compact)] border-t border-line pt-6">
+          <div className="mt-[var(--section-space-compact)]">
             <h3 className="font-mono text-meta uppercase text-ink">
               TOOLS &amp; TECHNOLOGIES
             </h3>
