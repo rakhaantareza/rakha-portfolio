@@ -26,6 +26,67 @@ async function ensureServerIsRunning() {
   }
 }
 
+async function preparePageForScreenshot(page) {
+  await page.evaluate(() => document.fonts.ready);
+
+  await page.evaluate(async () => {
+    const nextFrame = () =>
+      new Promise((resolveFrame) => requestAnimationFrame(resolveFrame));
+    const scrollStep = Math.max(250, Math.floor(window.innerHeight * 0.75));
+
+    while (
+      window.scrollY + window.innerHeight <
+      document.documentElement.scrollHeight
+    ) {
+      window.scrollBy(0, scrollStep);
+      await nextFrame();
+      await nextFrame();
+    }
+
+    window.scrollTo(0, document.documentElement.scrollHeight);
+    await nextFrame();
+    await nextFrame();
+  });
+
+  try {
+    await page.waitForFunction(
+      () =>
+        [...document.images].every(
+          (image) =>
+            image.complete && (!image.currentSrc || image.naturalWidth > 0),
+        ),
+      undefined,
+      { timeout: 30_000 },
+    );
+  } catch (error) {
+    const pendingImages = await page.evaluate(() =>
+      [...document.images]
+        .filter(
+          (image) =>
+            !image.complete || (image.currentSrc && image.naturalWidth === 0),
+        )
+        .map((image) => image.currentSrc || image.src || "image without a source"),
+    );
+
+    throw new Error(
+      `Images did not finish loading: ${pendingImages.join(", ") || "unknown image"}`,
+      { cause: error },
+    );
+  }
+
+  await page.evaluate(async () => {
+    await Promise.all(
+      [...document.images]
+        .filter((image) => image.currentSrc)
+        .map((image) => image.decode()),
+    );
+
+    await new Promise((resolveFrame) =>
+      requestAnimationFrame(() => requestAnimationFrame(resolveFrame)),
+    );
+  });
+}
+
 async function captureScreenshots() {
   let browser;
 
@@ -54,7 +115,7 @@ async function captureScreenshots() {
 
         try {
           const response = await page.goto(url, {
-            waitUntil: "networkidle",
+            waitUntil: "load",
             timeout: 30_000,
           });
 
@@ -64,7 +125,7 @@ async function captureScreenshots() {
             );
           }
 
-          await page.evaluate(() => document.fonts.ready);
+          await preparePageForScreenshot(page);
           await page.screenshot({ path: outputPath, fullPage: true });
         } finally {
           await page.close();
