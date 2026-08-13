@@ -2,7 +2,7 @@ import { mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import { chromium } from "playwright";
 
-const baseUrl = process.env.BASE_URL ?? "http://127.0.0.1:3000";
+const baseUrl = process.env.BASE_URL ?? "http://localhost:3000";
 
 const routes = [{ name: "home", path: "/" }];
 
