@@ -42,12 +42,12 @@ export function Navigation() {
           <Link
             href="/"
             aria-label="Rakha Antareza, home"
-            className="flex min-h-18 items-center py-5 text-lg font-medium tracking-[-0.035em]"
+            className="flex min-h-18 items-center py-5 text-ui font-medium tracking-[-0.025em]"
           >
             RAKHA.
           </Link>
 
-          <ul className="hidden items-center gap-10 text-sm lg:flex">
+          <ul className="hidden items-center gap-10 text-ui lg:flex">
             <NavigationItems />
           </ul>
 

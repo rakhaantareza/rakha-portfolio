@@ -35,7 +35,7 @@ export function Capabilities() {
         <div className="border-t border-line pt-6">
           <h2
             id="capabilities-heading"
-            className="font-mono text-meta uppercase text-accent"
+            className="font-mono text-metadata uppercase text-accent"
           >
             02 / CAPABILITIES
           </h2>
@@ -52,13 +52,13 @@ export function Capabilities() {
                       : "border-t border-line md:pt-12 lg:pt-14 xl:pt-16"
                 }`}
               >
-                <p className="font-mono text-meta text-ink-muted">
+                <p className="font-mono text-metadata text-ink-muted">
                   {capability.index}
                 </p>
-                <h3 className="mt-5 max-w-[18ch] text-subheading font-medium">
+                <h3 className="mt-5 max-w-[18ch] text-content-title font-medium">
                   {capability.title}
                 </h3>
-                <p className="mt-5 max-w-[36rem] text-base leading-7 text-ink-muted sm:text-lg sm:leading-8">
+                <p className="mt-5 max-w-[36rem] text-body text-ink-muted">
                   {capability.description}
                 </p>
               </li>

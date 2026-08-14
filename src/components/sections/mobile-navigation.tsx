@@ -21,14 +21,14 @@ export function MobileNavigation({ links }: MobileNavigationProps) {
         aria-controls="compact-navigation-menu"
         aria-expanded={isOpen}
         onClick={() => setIsOpen((open) => !open)}
-        className="justify-self-end font-mono text-meta uppercase text-ink-muted transition-colors hover:text-ink motion-reduce:transition-none lg:hidden"
+        className="justify-self-end font-mono text-metadata uppercase text-ink-muted transition-colors hover:text-ink motion-reduce:transition-none lg:hidden"
       >
         {isOpen ? "Close" : "Menu"}
       </button>
 
       <ul
         id="compact-navigation-menu"
-        className={`${isOpen ? "grid" : "hidden"} col-span-2 gap-4 border-t border-line py-6 text-sm lg:hidden`}
+        className={`${isOpen ? "grid" : "hidden"} col-span-2 gap-4 border-t border-line py-6 text-ui lg:hidden`}
       >
         {links.map((link) => (
           <li key={link.href}>

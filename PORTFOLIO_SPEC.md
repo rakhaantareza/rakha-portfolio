@@ -255,6 +255,35 @@ Avoid:
 
 The portfolio should establish identity through typography and work rather than decorative effects.
 
+### Desktop Opening Screen
+
+At desktop widths (`>=1024px`), the desktop opening experience is composed as one viewport: Navigation + vertically centered Hero, followed immediately by Selected Work.
+
+- Navigation and Hero together form one complete opening viewport.
+- The opening wrapper uses approximately `min-height: 100svh` with Navigation and Hero arranged as `auto 1fr` rows or an equivalent layout.
+- Navigation keeps its natural height.
+- Hero occupies the remaining available height.
+- The complete Hero content cluster is vertically centered inside the Hero area.
+- The complete cluster includes:
+  - eyebrow
+  - name
+  - Hero headline
+  - supporting copy
+  - LinkedIn / GitHub
+  - Explore my work
+- Keep LinkedIn and GitHub close to the supporting copy. Keep “Explore my work ↓” visually separated with a controlled desktop gap of approximately 48–64px.
+- “Explore my work ↓” remains part of the centered Hero cluster and must not be independently anchored to the viewport bottom.
+- Selected Work begins immediately after the opening viewport.
+- There must be no leftover spacer or artificial blank area between the Hero and Selected Work.
+- Preserve natural browser scrolling. Do not use scroll snap or scroll hijacking.
+- Do not use large fixed margins, spacer elements, arbitrary translations, or `margin-top: auto` to position Hero content.
+
+Responsive exceptions:
+
+- At 768px, keep the Hero intentionally more content-aware. Do not force the desktop full-screen composition if it creates excessive whitespace.
+- Below 768px, keep the Hero content-driven and do not force `100svh`.
+- Mobile social links remain side-by-side where they comfortably fit.
+
 ---
 
 # 9. Selected Work
@@ -728,42 +757,45 @@ The new portfolio should feel like a significant evolution rather than a redesig
 
 ---
 
-# 21. Typography Direction
+# 21. Typography System
 
-Use three typographic roles.
+Typography hierarchy is role-based. Elements with the same semantic role should share the same typography token; individual sections should not invent independent font sizes.
 
-## Display
+## Typeface Usage
 
-Modern grotesk or contemporary sans-serif.
+**Instrument Sans** is the primary typeface for display, content-title, body, UI, and transition-link roles. It should carry the site's editorial hierarchy and remain readable in both compact interface text and longer passages.
 
-Used for:
+**IBM Plex Mono** is reserved for metadata: section labels, eyebrows, project years and categories, technology metadata, and small indices. Monospace should remain an accent, not the primary typeface.
 
-- Hero
-- Project titles
-- Major statements
+## Typography Roles
 
-## Body
+| Role | Intended usage | Mobile target | Desktop target through 1440px | Large Desktop / XL target | Line-height guidance |
+| --- | --- | --- | --- | --- | --- |
+| Display / Hero | Main homepage Hero headline | approximately 40px | approximately 64px | 86px | 0.98–1.02 |
+| Display / Project | Major featured-project names such as ApplyFit | approximately 44px | approximately 72px | 92px | 0.95–1.0 |
+| Display / Statement | Major editorial statements, including About and Contact statements | approximately 36px | approximately 52px | 66px | approximately 1.0 |
+| Section / Content Title | Capability titles, project propositions, experience role titles, and equivalent future content titles | approximately 21–22px | approximately 26–28px | 32px | approximately 1.15 |
+| Body | Supporting descriptions, About narrative, Experience descriptions, and Contact supporting copy | 16px | 16px | 18px | 1.55–1.65 |
+| UI / Link | Navigation, social links, standard text actions, and project action links | approximately 14px | approximately 14px | 15px | approximately 1.5 |
+| Transition Link | Subtle navigational transition cues such as “Explore my work ↓” | approximately 13px | approximately 13px | 14px | approximately 1.4 |
+| Metadata / Mono | Section labels, eyebrows, project year and category, technology metadata, and small indices | approximately 10–11px | approximately 11–12px | 12px | approximately 1.4 |
 
-Highly readable sans-serif.
+## Large Desktop / XL Tier
 
-Used for:
+The Large Desktop / XL typography tier begins at `>=1600px`. It uses the same semantic roles and does not change section structure, grid relationships, or information architecture.
 
-- Descriptions
-- Case studies
-- Longer content
+Large desktops preserve the same semantic hierarchy while receiving a modest scale increase. Display roles receive the most noticeable increase; body, UI, transition, and metadata roles increase only enough to remain proportionate to the larger canvas. Typography through 1440px should remain visually unchanged.
 
-## Metadata
+## Hierarchy Rules
 
-Monospace may be used selectively.
-
-Used for:
-
-- Section numbering
-- Project year
-- Technology metadata
-- Labels
-
-Monospace should remain an accent, not the primary typeface.
+- Use fluid `clamp()` sizing for the three display roles and the content-title role so hierarchy scales intentionally between mobile and large desktop.
+- Display / Project may be slightly more prominent than Display / Hero because it acts as a project identifier.
+- Display / Statement should remain below Hero and project titles in the hierarchy.
+- Equivalent capability and experience titles must share the Section / Content Title token.
+- Body copy should remain consistently sized across sections; use measure and spacing, not unrelated font sizes, to create local variation.
+- UI / Link text should not compete with content typography. Transition links should be quieter than body copy and should not read as primary CTA buttons.
+- Metadata remains compact and uppercase where appropriate. Do not use IBM Plex Mono for body or display copy.
+- Apply the Large Desktop / XL values through one controlled `>=1600px` role-token override. Do not introduce independent per-section XL sizes or uncontrolled viewport-relative scaling.
 
 ---
 
@@ -807,6 +839,12 @@ Not every piece of content requires:
 - card container
 
 Use composition rather than containers to create hierarchy.
+
+## Large Desktop Container
+
+At `>=1600px`, use a dedicated large-desktop container tier with an approximately 1440px content grid. The padded outer wrapper may extend beyond 1440px to preserve the existing gutters; the layout must not become full-width.
+
+Large-screen scaling must preserve readable text measure. Keep explicit readable maximum widths on Hero supporting copy, project descriptions, About narrative, Experience descriptions, and Contact supporting copy even when the surrounding grid becomes wider.
 
 ---
 
@@ -858,9 +896,13 @@ Responsive design must be intentional from the beginning.
 
 Breakpoints should conceptually support:
 
+### Large Desktop
+
+1600px+
+
 ### Desktop
 
-1280px+
+1280–1599px
 
 ### Small Desktop
 
@@ -875,6 +917,8 @@ Breakpoints should conceptually support:
 Below 768px
 
 Do not treat tablet as compressed desktop.
+
+At widths from 1024px upward, compose Navigation and Hero as one `100svh` opening screen followed immediately by Selected Work. At 768px and below, use a compact viewport-aware or content-driven Hero rather than forcing a viewport-height composition.
 
 Components may change composition between breakpoints.
 
@@ -902,6 +946,7 @@ Mobile:
 
 Every major section must be reviewed at:
 
+- 1920px
 - 1440px
 - 1280px
 - 1024px
