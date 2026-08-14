@@ -139,3 +139,36 @@ h2,
 h3 {
   overflow-wrap: break-word;
 }
+
+.selected-work-proof {
+  opacity: 0.92;
+  filter: saturate(0.92) contrast(0.98);
+  mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    rgb(0 0 0 / 0.62) 0%,
+    #000 5%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    rgb(0 0 0 / 0.62) 0%,
+    #000 5%,
+    #000 100%
+  );
+  transition:
+    opacity 320ms ease,
+    filter 320ms ease;
+}
+
+.selected-work-proof:hover,
+.selected-work-project:focus-within .selected-work-proof {
+  opacity: 0.98;
+  filter: saturate(1) contrast(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selected-work-proof {
+    transition: none;
+  }
+}
