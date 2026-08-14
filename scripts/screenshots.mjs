@@ -7,6 +7,7 @@ const baseUrl = process.env.BASE_URL ?? "http://localhost:3000";
 const routes = [{ name: "home", path: "/" }];
 
 const viewports = [
+  { width: 1920, height: 1080 },
   { width: 1440, height: 900 },
   { width: 1280, height: 800 },
   { width: 1024, height: 768 },
