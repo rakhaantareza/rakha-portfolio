@@ -4,7 +4,7 @@ import { chromium } from "playwright";
 
 const baseUrl = process.env.BASE_URL ?? "http://localhost:3000";
 
-const routes = [{ name: "home", path: "/" }];
+const defaultRoutes = [{ name: "home", path: "/" }];
 
 const viewports = [
   { width: 1920, height: 1080 },
@@ -15,6 +15,56 @@ const viewports = [
   { width: 430, height: 932 },
   { width: 390, height: 844 },
 ];
+
+function getRoutesFromArguments() {
+  const args = process.argv.slice(2);
+
+  if (args.length === 0) {
+    return defaultRoutes;
+  }
+
+  const options = {};
+
+  for (let index = 0; index < args.length; index += 2) {
+    const option = args[index];
+    const value = args[index + 1];
+
+    if (option !== "--path" && option !== "--name") {
+      throw new Error(
+        `Unknown argument: ${option}. Use --path <route> --name <folder>.`,
+      );
+    }
+
+    if (!value || value.startsWith("--")) {
+      throw new Error(`Missing value for ${option}.`);
+    }
+
+    if (options[option]) {
+      throw new Error(`Duplicate argument: ${option}.`);
+    }
+
+    options[option] = value;
+  }
+
+  const routePath = options["--path"];
+  const routeName = options["--name"];
+
+  if (!routePath || !routeName) {
+    throw new Error("Custom captures require both --path and --name.");
+  }
+
+  if (!routePath.startsWith("/") || routePath.startsWith("//")) {
+    throw new Error("--path must be a local route beginning with a single slash.");
+  }
+
+  if (!/^[a-z0-9][a-z0-9_-]*$/i.test(routeName)) {
+    throw new Error(
+      "--name must contain only letters, numbers, hyphens, or underscores.",
+    );
+  }
+
+  return [{ name: routeName, path: routePath }];
+}
 
 async function ensureServerIsRunning() {
   try {
@@ -92,6 +142,7 @@ async function captureScreenshots() {
   let browser;
 
   try {
+    const routes = getRoutesFromArguments();
     await ensureServerIsRunning();
     browser = await chromium.launch();
 
