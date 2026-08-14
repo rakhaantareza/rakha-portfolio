@@ -120,9 +120,9 @@ Figma
 Mekari · Talenta  
 2025
 
-Worked across product and go-to-market teams on B2B SaaS launches and customer-facing experiences, including product landing pages, feature communication, and customer case studies.
+Worked across product and go-to-market teams on B2B SaaS initiatives, including product landing pages, feature communication, customer-facing content, and customer case studies.
 
-The role gave me direct exposure to how product decisions are translated into experiences that users and businesses can understand.
+Collaborated around product launches and feature communication, translating product information into clear experiences and materials for customers and business audiences.
 
 ---
 
@@ -131,9 +131,9 @@ The role gave me direct exposure to how product decisions are translated into ex
 **Full Stack Developer Intern**  
 2022
 
-Built frontend interfaces from Figma designs, contributed to a Laravel-to-Vue migration, and worked alongside designers and developers within an Agile product team.
+Built frontend interfaces from Figma designs, contributed to a Laravel-to-Vue migration, and worked with designers and developers within an Agile development team.
 
-The experience strengthened my foundation in translating product designs into working interfaces while collaborating inside a software development workflow.
+Contributed to an existing software codebase by translating interface designs into working frontend implementation and supporting ongoing product development.
 
 ---
 
@@ -141,7 +141,7 @@ The experience strengthened my foundation in translating product designs into wo
 
 ## LET'S BUILD SOMETHING USEFUL.
 
-I'm open to software engineering opportunities and conversations around building digital products.
+I'm open to software engineering opportunities across frontend and full-stack web development.
 
 **rakhaantareza@gmail.com ↗**
 
