@@ -9,7 +9,7 @@ import {
 } from "@/data/featured-projects";
 
 const actionClassName =
-  "inline-flex items-center text-ui font-medium text-ink underline decoration-line-strong transition-[color,text-decoration-color,text-underline-offset] duration-200 hover:text-accent hover:decoration-accent hover:underline-offset-[0.32em] focus-visible:text-accent focus-visible:decoration-accent motion-reduce:transition-none";
+  "inline-flex items-center text-ui font-medium text-ink underline decoration-line-strong transition-[color,text-decoration-color,text-underline-offset] duration-200 hover:text-accent-hover hover:decoration-accent-hover hover:underline-offset-[0.32em] focus-visible:text-accent-hover focus-visible:decoration-accent-hover motion-reduce:transition-none";
 
 type FeaturedProjectEntryProps = {
   project: PublishedFeaturedProject;
@@ -40,7 +40,7 @@ function FeaturedProjectEntry({
           <p className="mt-3 whitespace-nowrap text-metadata text-ink">
             {project.category}
           </p>
-          <p className="mt-2 text-metadata text-ink-muted">{project.year}</p>
+          <p className="mt-2 text-metadata text-muted">{project.year}</p>
         </div>
 
         <div className="col-span-12 mt-8 min-w-0 md:col-span-9 md:col-start-4 md:row-start-1 md:mt-0 min-[1025px]:contents">

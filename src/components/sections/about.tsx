@@ -31,7 +31,7 @@ export function About() {
             id="about-heading"
             className="font-mono text-metadata uppercase text-accent"
           >
-            03 / ABOUT
+            02 / ABOUT
           </h2>
 
           <div className="mt-14 sm:mt-20 lg:grid lg:grid-cols-12 lg:gap-8 xl:mt-24">
@@ -67,7 +67,7 @@ export function About() {
             <div className="mt-10 grid gap-10 sm:grid-cols-3 sm:gap-8 lg:mt-12">
               {technologyGroups.map((group) => (
                 <div key={group.category}>
-                  <h4 className="font-mono text-metadata uppercase text-ink-muted">
+                  <h4 className="font-mono text-metadata uppercase text-muted">
                     {group.category}
                   </h4>
                   <ul className="mt-5 space-y-2 text-body">

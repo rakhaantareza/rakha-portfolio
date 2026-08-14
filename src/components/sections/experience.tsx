@@ -36,7 +36,7 @@ export function Experience() {
             id="experience-heading"
             className="font-mono text-metadata uppercase text-accent"
           >
-            04 / EXPERIENCE
+            03 / EXPERIENCE
           </h2>
 
           <ol className="mt-14 sm:mt-20 xl:mt-24">
@@ -57,7 +57,7 @@ export function Experience() {
                     className="md:grid md:grid-cols-12 md:gap-8"
                   >
                     <div className="md:col-span-4 lg:col-span-3">
-                      <p className="font-mono text-metadata text-ink-muted">
+                      <p className="font-mono text-metadata text-muted">
                         {experience.year}
                       </p>
                       <h3

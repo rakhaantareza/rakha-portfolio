@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { MobileNavigation } from "@/components/sections/mobile-navigation";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 
 const navigationLinks = [
   { href: "#work", label: "Work" },
@@ -16,7 +17,7 @@ function NavigationItems() {
         <li key={link.href}>
           <a
             href={link.href}
-            className="transition-colors hover:text-accent motion-reduce:transition-none"
+            className="transition-colors hover:text-accent-hover motion-reduce:transition-none"
           >
             {link.label}
           </a>
@@ -26,6 +27,9 @@ function NavigationItems() {
         <span aria-disabled="true" className="cursor-not-allowed text-ink-muted">
           Resume ↗
         </span>
+      </li>
+      <li>
+        <ThemeToggle />
       </li>
     </>
   );

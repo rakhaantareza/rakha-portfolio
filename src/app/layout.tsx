@@ -15,6 +15,28 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+const themeScript = `
+  (function () {
+    var storageKey = "rakha-color-theme";
+    var theme;
+
+    try {
+      var storedTheme = window.localStorage.getItem(storageKey);
+      if (storedTheme === "light" || storedTheme === "dark") {
+        theme = storedTheme;
+      }
+    } catch (error) {}
+
+    if (!theme) {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+
+    document.documentElement.dataset.theme = theme;
+  })();
+`;
+
 export const metadata: Metadata = {
   title: "Rakha Antareza — Software Engineer",
   description: "Portfolio of Rakha Antareza, a software engineer in Indonesia.",
@@ -27,6 +49,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${instrumentSans.variable} ${ibmPlexMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="flex min-h-full flex-col" suppressHydrationWarning>
         {children}
       </body>

@@ -13,7 +13,7 @@ const secondaryActions = [
 ];
 
 const actionClassName =
-  "text-ui font-medium underline decoration-line-strong transition-colors hover:text-accent hover:decoration-accent motion-reduce:transition-none";
+  "text-ui font-medium underline decoration-line-strong transition-colors hover:text-accent-hover hover:decoration-accent-hover motion-reduce:transition-none";
 
 export function Contact() {
   return (
@@ -21,7 +21,7 @@ export function Contact() {
       <Container>
         <div className="border-t border-line pt-6">
           <p className="font-mono text-metadata uppercase text-accent">
-            05 / CONTACT
+            04 / CONTACT
           </p>
 
           <h2
@@ -41,7 +41,7 @@ export function Contact() {
             <div className="mt-10 md:col-span-6 md:mt-0 lg:col-span-5 lg:col-start-8">
               <a
                 href="mailto:rakhaantareza@gmail.com"
-                className="inline-block text-content-title font-medium underline decoration-2 decoration-accent underline-offset-[0.18em] transition-colors hover:text-accent motion-reduce:transition-none"
+                className="inline-block text-content-title font-medium underline decoration-2 decoration-accent underline-offset-[0.18em] transition-colors hover:text-accent-hover motion-reduce:transition-none"
               >
                 rakhaantareza@gmail.com ↗
               </a>

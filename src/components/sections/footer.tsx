@@ -14,7 +14,7 @@ export function Footer() {
             Designed &amp; built by Rakha Antareza.
           </p>
 
-          <p className="font-mono text-metadata text-ink-muted sm:justify-self-end sm:self-end lg:col-span-2 lg:col-start-11 lg:self-start">
+          <p className="font-mono text-metadata text-muted sm:justify-self-end sm:self-end lg:col-span-2 lg:col-start-11 lg:self-start">
             © 2026
           </p>
         </div>

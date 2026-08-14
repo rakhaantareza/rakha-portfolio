@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { ThemeToggle } from "@/components/theme/theme-toggle";
+
 type NavigationLink = {
   href: string;
   label: string;
@@ -34,7 +36,7 @@ export function MobileNavigation({ links }: MobileNavigationProps) {
           <li key={link.href}>
             <a
               href={link.href}
-              className="transition-colors hover:text-accent motion-reduce:transition-none"
+              className="transition-colors hover:text-accent-hover motion-reduce:transition-none"
             >
               {link.label}
             </a>
@@ -47,6 +49,12 @@ export function MobileNavigation({ links }: MobileNavigationProps) {
           >
             Resume ↗
           </span>
+        </li>
+        <li className="mt-2 flex items-center justify-between border-t border-line pt-5">
+          <span className="font-mono text-metadata uppercase text-muted">
+            Theme
+          </span>
+          <ThemeToggle />
         </li>
       </ul>
     </>

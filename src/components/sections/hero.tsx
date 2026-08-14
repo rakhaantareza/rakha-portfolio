@@ -36,7 +36,7 @@ export function Hero() {
                   href="https://www.linkedin.com/in/rakhaantareza/"
                   target="_blank"
                   rel="noreferrer"
-                  className="font-medium underline decoration-line-strong transition-colors hover:text-accent hover:decoration-accent motion-reduce:transition-none"
+                  className="font-medium underline decoration-line-strong transition-colors hover:text-accent-hover hover:decoration-accent-hover motion-reduce:transition-none"
                 >
                   LinkedIn ↗
                 </a>
@@ -44,7 +44,7 @@ export function Hero() {
                   href="https://github.com/rakhaantareza"
                   target="_blank"
                   rel="noreferrer"
-                  className="font-medium underline decoration-line-strong transition-colors hover:text-accent hover:decoration-accent motion-reduce:transition-none"
+                  className="font-medium underline decoration-line-strong transition-colors hover:text-accent-hover hover:decoration-accent-hover motion-reduce:transition-none"
                 >
                   GitHub ↗
                 </a>
@@ -55,7 +55,7 @@ export function Hero() {
           <div className="mt-[var(--hero-transition-before)]">
             <a
               href="#work"
-              className="text-transition font-medium underline decoration-2 decoration-accent underline-offset-4 transition-colors hover:text-accent motion-reduce:transition-none"
+              className="text-transition font-medium underline decoration-2 decoration-accent underline-offset-4 transition-colors hover:text-accent-hover motion-reduce:transition-none"
             >
               Explore my work ↓
             </a>

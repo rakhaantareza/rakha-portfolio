@@ -1,14 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --canvas: #f4f1ea;
+  color-scheme: light;
+
+  --background: #f4f1ea;
   --surface: #fbfaf7;
   --surface-muted: #ebe8e1;
-  --ink: #181815;
-  --ink-muted: #686760;
+  --foreground: #181815;
+  --foreground-secondary: #686760;
+  --muted: #686760;
   --border: #d5d1c8;
   --border-strong: #a9a59b;
   --accent: #c44f36;
+  --accent-hover: #c44f36;
   --inverse: #171714;
   --inverse-ink: #f4f1ea;
 
@@ -28,6 +32,23 @@
   --type-ui: 0.875rem;
   --type-transition: 0.8125rem;
   --type-metadata: clamp(0.625rem, 0.5625rem + 0.25vw, 0.75rem);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: #171614;
+  --surface: #1f1d1a;
+  --surface-muted: #1f1d1a;
+  --foreground: #f1ede7;
+  --foreground-secondary: #b2aaa0;
+  --muted: #888078;
+  --border: #37332e;
+  --border-strong: #888078;
+  --accent: #e47758;
+  --accent-hover: #f08a69;
+  --inverse: #f1ede7;
+  --inverse-ink: #171614;
 }
 
 @media (min-width: 64rem) {
@@ -53,14 +74,16 @@
 }
 
 @theme inline {
-  --color-canvas: var(--canvas);
+  --color-canvas: var(--background);
   --color-surface: var(--surface);
   --color-surface-muted: var(--surface-muted);
-  --color-ink: var(--ink);
-  --color-ink-muted: var(--ink-muted);
+  --color-ink: var(--foreground);
+  --color-ink-muted: var(--foreground-secondary);
+  --color-muted: var(--muted);
   --color-line: var(--border);
   --color-line-strong: var(--border-strong);
   --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
   --color-inverse: var(--inverse);
   --color-inverse-ink: var(--inverse-ink);
   --font-sans: var(--font-instrument-sans);
@@ -97,14 +120,14 @@
 
 html {
   min-width: 20rem;
-  background: var(--canvas);
+  background: var(--background);
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  background: var(--canvas);
-  color: var(--ink);
+  background: var(--background);
+  color: var(--foreground);
   font-family: var(--font-instrument-sans), Arial, Helvetica, sans-serif;
   text-rendering: optimizeLegibility;
 }
@@ -131,6 +154,11 @@ a {
   color: inherit;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.2em;
+}
+
+a:active,
+button:active {
+  color: var(--accent-hover);
 }
 
 p,
@@ -167,8 +195,108 @@ h3 {
   filter: saturate(1) contrast(1);
 }
 
+:root[data-theme="dark"] .selected-work-proof {
+  opacity: 1;
+  filter: none;
+  mix-blend-mode: normal;
+  -webkit-mask-image: none;
+  mask-image: none;
+  outline: 1px solid var(--border);
+  outline-offset: -1px;
+  transition: none;
+}
+
+.theme-toggle {
+  position: relative;
+  border: 0;
+  color: var(--muted);
+}
+
+.theme-toggle__track {
+  position: relative;
+  display: grid;
+  width: 3.5rem;
+  height: 1.625rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  background: transparent;
+  transition: border-color 160ms ease;
+}
+
+.theme-toggle__thumb {
+  position: absolute;
+  top: 50%;
+  left: 0.1875rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--border);
+  transform: translateY(-50%);
+  transition: transform 180ms ease;
+}
+
+.theme-toggle__icon {
+  position: relative;
+  z-index: 1;
+  width: 0.75rem;
+  height: 0.75rem;
+  justify-self: center;
+  transition: color 160ms ease;
+}
+
+.theme-toggle__sun {
+  color: var(--foreground);
+}
+
+.theme-toggle__moon {
+  color: var(--muted);
+}
+
+.theme-toggle:hover .theme-toggle__track {
+  border-color: var(--border-strong);
+}
+
+.theme-toggle:focus-visible {
+  border-radius: 9999px;
+  outline: 1px solid var(--foreground-secondary);
+  outline-offset: 2px;
+}
+
+.theme-toggle__label-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle__thumb {
+  transform: translate(1.75rem, -50%);
+}
+
+:root[data-theme="dark"] .theme-toggle__label-dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle__label-light {
+  display: block;
+}
+
+:root[data-theme="dark"] .theme-toggle__sun {
+  color: var(--muted);
+}
+
+:root[data-theme="dark"] .theme-toggle__moon {
+  color: var(--foreground);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .selected-work-proof {
+    transition: none;
+  }
+
+  .theme-toggle__track,
+  .theme-toggle__thumb,
+  .theme-toggle__icon {
     transition: none;
   }
 }
